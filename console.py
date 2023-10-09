@@ -6,6 +6,7 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 
+
 class HABBCCommand(cmd.Cmd):
     """ Initializing Console """
     prompt = '(HABBC) '
