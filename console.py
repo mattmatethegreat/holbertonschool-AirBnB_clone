@@ -3,35 +3,61 @@
 
 import shlex
 import cmd
-from models import storage
-from models.base_model import BaseModel
 
-
-class HABBCCommand(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ Initializing Console """
-    prompt = '(HABBC) '
-    class_list = {
-            "BaseModel",
-            #
-            #
-            #
-            #
-            #
-            #
-        }
+    prompt = "(HBNB) "
 
-    def empty(self):
-        """ Nothing happens when the line is emtpy """
-        pass
-
-    def EOF(self, *line):
-        """ Quits if EOF is entered """
-        print()
+    def do_quit(self, arg):
+        """ """
         return True
 
-    def quit(self, *line):
-        """ Quits the program """
-        return True
+    def help_quit(self):
+        """ """
+        print("Quit the command interpreter")
 
-    def create(self, *line):
-        """ Creates a new instance of BaseModel """
+    def do_create(self, arg):
+        """ """
+        if not arg:
+            print("** class name missing **")
+            return
+
+        classes = {"User": User, "Place": Place} #
+        class_name = arg.split()[0]
+
+        if class_name in classes:
+            instance = classes[class_name]()
+            instance.save()
+            print(instance.id)
+        else:
+            print("** class doesn't exist **")
+
+    def help_create(self):
+        """ """
+        print("Create a new instance of a class. Usage: create <class_name>")
+
+    def do_all(self, arg):
+        """List all instances of a class"""
+        classes = {"User": User, "Place": Place} #
+
+        if not arg:
+            instances = []
+            for cls_name, cls in classes.items():
+                instances += cls.all()
+            print([str(instance) for instance in instances])
+            return
+
+        class_name = arg.split()[0]
+
+        if class_name in classes:
+            instances = classes[class_name].all()
+            print([str(instance) for instance in instances])
+        else:
+            print("** class doesn't exist **")
+
+        def help_all(self):
+            """Help message for the all command"""
+            print("List all instances of a class. Usage: all [class_name]")
+
+if __name__ == "__main__":
+    HBNBCommand().cmdloop()
