@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""  """
+""" Amenity Class """
 
 class Amenity:
     def __init__(self, name):
