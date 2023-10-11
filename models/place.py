@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
-""" Place Class """
 
 class Place(BaseModel):
+    """ Place Class """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.city_id = ""
