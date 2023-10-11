@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """ File Storage Class Module """
-import
+import json
 from models.amenity import Amenity
 
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-     def all(self):
+    def all(self):
          """Returns a dictionary of all objects"""
          return FileStorage.__objects
 
-     def new(self, obj):
+    def new(self, obj):
          """Adds a new object to the storage dictionary"""
          key = "{}.{}".format(obj.__class__.__name__, obj.id)
          FileStorage.__objects[key] = obj

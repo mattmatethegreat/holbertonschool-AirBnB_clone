@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ Command Line Interpreter """
-
-import shlex
 import cmd
 from models import storage
+
 from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
