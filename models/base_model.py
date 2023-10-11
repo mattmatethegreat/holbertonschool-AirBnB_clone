@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
-
+""" Base Model Class """
 class BaseModel:
     """ Base Model Class """
     def __init__(self, *args, **kwargs):

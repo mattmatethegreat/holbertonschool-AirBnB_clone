@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
-
+""" City Class """
 class City(BaseModel):
     """ City Class """
     def __init__(self, *args, **kwargs):

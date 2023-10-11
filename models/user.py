@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from models.base_model import BaseModel
-
+""" User Class """
 class User(BaseModel):
     """ User Class """
     def __init__(self, *args, **kwargs):

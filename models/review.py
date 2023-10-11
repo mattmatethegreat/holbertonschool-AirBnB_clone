@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
-
+""" Review Class """
 class Review(BaseModel):
     """ Review Class """
     def __init__(self, *args, **kwargs):
